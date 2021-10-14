@@ -5,8 +5,8 @@ import csv
 registro_progreso = []
 top_global = []
 
-registro_progreso_localidad = "../datos/registro.csv"
-top_global_localidad = "../datos/top_global.csv"
+registro_progreso_localidad = "Juego_integrador/datos/registro_progresos.csv"
+top_global_localidad = "Juego_integrador/datos/top_global.csv"
 
 #........................................................
 
@@ -53,4 +53,3 @@ def guardar_top_global(matriz_modificada_top_global):
     top_global = matriz_modificada_top_global
     guardarMatriz(top_global_localidad,top_global)
 
-    
