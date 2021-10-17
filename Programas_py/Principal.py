@@ -1,9 +1,9 @@
 import Generador_matrices
-import juego1
+import conecta4
 import juego2
 import juego3
 import juego4
-import lib_frames
+import lib_frames_conecta4
 import os
 import datetime
 
