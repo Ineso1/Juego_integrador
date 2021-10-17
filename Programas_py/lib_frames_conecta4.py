@@ -16,11 +16,18 @@ ficha2 = [
 ["    :::    "]
 ]
 vacio = [
-["           "],
-["           "],
-["           "],
-["           "]
+["     .     "],
+["     .     "],
+["     .     "],
+["     .     "]
 ]
+
+renglon_inferior = ["""
+__________ __________ __________ __________ __________ __________ __________
+     ^          ^          ^          ^          ^          ^          ^
+     1          2          3          4          5          6          7
+
+"""]
 
 #variables generales -------------------------------------------------------------------------
 
@@ -68,6 +75,7 @@ def imprimir_forma():
                 renglonk = renglonk + f"{rectangulo_principal[i][j][k][0]}"
             renglonk = renglonk + "\n"
     print(renglonk)
+    print(renglon_inferior[0])
 
 def posiciones_y(columna):
     posicion_libre = None
@@ -84,14 +92,15 @@ def posiciones_y(columna):
 def inicio():
     os.system('mode con: cols=200 lines=49')
     mensaje_de_inicio = """
-    
-    Conecta 4
-    
+      _______   ______    ___  __   ______
+     /  ____/  / ___  /  /  | / /  /:::::/
+    /  /___   / /__/ /  /   |/ /  /:/:/
+   /______/  /______/  /__/|__/  /:::::/
     """
     print(mensaje_de_inicio)
 
 
-
+"""
 rectangulo_matriz_pricipal(7,7)
 #print (rectangulo_principal)
 print(estado_matriz)
@@ -100,3 +109,4 @@ agregar_ficha_matriz(5,ficha1)
 print(estado_matriz)
 print(imprimir_forma())
 
+"""
