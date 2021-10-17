@@ -68,6 +68,7 @@ def agregar_ficha_matriz(columna,ficha):
 #Imprecion de forma (retorno de un string de la forma actual)
 
 def imprimir_forma():
+    os.system('mode con: cols=85 lines=50')
     renglonk = ""
     for i in range(len(rectangulo_principal)):
         for k in range(len(rectangulo_principal[i][0])):
@@ -90,12 +91,21 @@ def posiciones_y(columna):
 
 
 def inicio():
-    os.system('mode con: cols=200 lines=49')
+    os.system('mode con: cols=80 lines=20')
     mensaje_de_inicio = """
-      _______   ______    ___  __   ______
-     /  ____/  / ___  /  /  | / /  /:::::/
-    /  /___   / /__/ /  /   |/ /  /:/:/
-   /______/  /______/  /__/|__/  /:::::/
+
+                             Bienvenido a Conecta 4
+        _______   ______    ___  __   ______  _______  ________    __   __
+       /  ____/  / ___  /  /  | / /  /:::::/ /  ____/ /__   __/   / /__/ /
+      /  /___   / /__/ /  /   |/ /  /:/:/   /  /___     /  /     /___   _/
+     /______/  /______/  /__/|__/  /:::::/ /______/    /__/         /__/  
+
+
+
+
+                          Presiona enter para comenzar 
+
+
     """
     print(mensaje_de_inicio)
 
