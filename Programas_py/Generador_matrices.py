@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 #Variables globales .....................................
 
@@ -46,12 +47,15 @@ def matriz_top_global():
     cargarMatriz(top_global_localidad,top_global)
     return top_global
 
-def guardar_registro_juegos(matriz_modificada_registro_juegos):
-    registro_progreso = matriz_modificada_registro_juegos
-    guardarMatriz(registro_juegos_localidad,registro_progreso)
+def guardar_registro_juegos(lista_a_registro_juegos):
+    registro_juegos_anadir = [lista_a_registro_juegos[0],lista_a_registro_juegos[1],datetime.now()]
+    registro_de_juegos.append(registro_juegos_anadir)
+    guardarMatriz(registro_juegos_localidad,registro_de_juegos)
 
-def guardar_top_global(matriz_modificada_top_global):
-    top_global = matriz_modificada_top_global
+def guardar_top_global(lista_a_top_global):
+    score=0
+    top_global_anadir = [lista_a_top_global,score]
+    top_global.append(top_global_anadir)
     guardarMatriz(top_global_localidad,top_global)
 
 

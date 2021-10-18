@@ -3,10 +3,12 @@ from lib_frames_conecta4 import *
 import  os
 from datetime import datetime
 
-"""
-reg_top = registro_de_juegos
-reg_juegos = top_global
-"""
+
+def registro_datos_partida(jugador_ganador,jugador_perdedor):
+    guardar_registro_juegos(jugador_ganador,jugador_perdedor)
+    guardar_top_global(jugador_ganador)
+
+
 
 def ingreso_de_datos(op):
     jugador_2 = "Computadora"
@@ -76,18 +78,16 @@ def main(op_juego):
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador1[0])
-                #regreso_registro(jugadores[0],jugadores[1])
-                #regreso_top(jugadores[0])
                 input()
                 juego = False
+                registro_datos_partida(jugadores[0],jugadores[1])
             elif estado_ganadores[1] == True:
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador2[0])
-                #regreso_registro(jugadores[1],jugadores[0])
-                #regreso_top(jugadores[1])
                 input()
                 juego = False
+                registro_datos_partida(jugadores[1],jugadores[0])
     os.system("cls")
 
 
