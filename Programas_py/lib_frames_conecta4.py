@@ -4,16 +4,16 @@ import os
 #Fichas de juego
 
 ficha1 = [
-["    ***    "],
-["  *******  "],
-["  *******  "],
-["    ***    "]
+["    ooo    "],
+["  ooooooo  "],
+["  ooooooo  "],
+["    ooo    "]
 ]
 ficha2 = [
-["    :::    "],
-["  :::::::  "],
-["  :::::::  "],
-["    :::    "]
+["    xxx    "],
+["  x:::::x  "],
+["  x:::::x  "],
+["    xxx    "]
 ]
 vacio = [
 ["     .     "],
@@ -31,6 +31,7 @@ __________ __________ __________ __________ __________ __________ __________
 
 #variables generales -------------------------------------------------------------------------
 
+replay = []
 estado_matriz = []
 rectangulo_principal=[]
 n_filas=7
@@ -57,18 +58,19 @@ def rectangulo_matriz_pricipal(filas,columnas):
 #Agregado de ficha en columna y fila dada
 
 def agregar_ficha_matriz(columna,ficha):
-    if posiciones_y(columna) == -1:
+    if len(posiciones_y(columna)) == 0:
         print("No se puede, pierdes turno")
     else:
         
-        fila = posiciones_y(columna)
-        rectangulo_principal[columna][fila] = ficha
-        estado_matriz[columna][fila] = 1
+        fila = max(posiciones_y(columna))
+        rectangulo_principal[fila][columna] = ficha
+        estado_matriz[fila][columna] = 1
+    replay.append(estado_matriz)
 
 #Imprecion de forma (retorno de un string de la forma actual)
 
 def imprimir_forma():
-    os.system('mode con: cols=85 lines=50')
+    os.system('mode con: cols=85 lines=49')
     renglonk = ""
     for i in range(len(rectangulo_principal)):
         for k in range(len(rectangulo_principal[i][0])):
@@ -79,16 +81,18 @@ def imprimir_forma():
     print(renglon_inferior[0])
 
 def posiciones_y(columna):
-    posicion_libre = None
+    posicion_libre = []
     for x in range(len(estado_matriz[0])):
         if estado_matriz[x][columna] == 0:
-            posicion_libre = x
-        else:
-            posicion_libre = -1
+            posicion_libre.append(x)
 
     return posicion_libre
             
-
+def validacion_numero(caracter):
+    if caracter.isdigit():
+        return True
+    else:
+        return False
 
 def inicio():
     os.system('mode con: cols=80 lines=20')
@@ -120,3 +124,4 @@ print(estado_matriz)
 print(imprimir_forma())
 
 """
+
