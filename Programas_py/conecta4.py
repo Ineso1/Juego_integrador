@@ -3,8 +3,10 @@ from lib_frames_conecta4 import *
 import  os
 from datetime import datetime
 
+"""
 reg_top = registro_de_juegos
 reg_juegos = top_global
+"""
 
 def ingreso_de_datos(op):
     jugador_2 = "Computadora"
@@ -12,17 +14,18 @@ def ingreso_de_datos(op):
     if int(op) == 2:
         jugador_2 = input("Nombre del jugador 2: ")
     return (jugador_1,jugador_2)
-
+"""
 def regreso_top(jugador_ganador):
     reg_top.append(jugador_ganador)
 
 def regreso_registro(jugador_ganador,jugador_perdedor):
     reg_top.append([jugador_ganador,jugador_perdedor,datetime.now()])
     guardar_registro_juegos(reg_top)
+"""
 
 def main(op_juego):
     os.system("cls")
-    rectangulo_matriz_pricipal(7,7)
+    reiniciar_variables()
     juego = True
     turno_jugador = 1
     jugadores = ingreso_de_datos(op_juego)
@@ -73,35 +76,36 @@ def main(op_juego):
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador1[0])
-                regreso_registro(jugadores[0],jugadores[1])
-                regreso_top(jugadores[0])
+                #regreso_registro(jugadores[0],jugadores[1])
+                #regreso_top(jugadores[0])
                 input()
                 juego = False
             elif estado_ganadores[1] == True:
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador2[0])
-                regreso_registro(jugadores[1],jugadores[0])
-                regreso_top(jugadores[1])
+                #regreso_registro(jugadores[1],jugadores[0])
+                #regreso_top(jugadores[1])
                 input()
                 juego = False
-
+    os.system("cls")
 
 
 if __name__ == '__main__':
     
     inicio()
     input()
-    os.system("cls")
-    opcion_juego = menu()
-    while opcion_juego != 5: 
+    opcion_juego = 1
+    while opcion_juego != 5:
+        os.system("cls")
+        opcion_juego = menu() 
         if int(opcion_juego) == 1 or opcion_juego == 2:
             main(opcion_juego)
         elif int(opcion_juego) == 5:
             break
         else:
             os.system("cls")
-        opcion_juego = menu()
+            opcion_juego = menu()
             
     
 

@@ -54,8 +54,6 @@ rectangulo_principal=[]
 n_filas=7
 n_columnas=7
 
-prueba_estado_matriz = [[0,0,0,1,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[1,0,0,1,1,1,1]]
-
 
 
 
@@ -68,7 +66,7 @@ prueba_estado_matriz = [[0,0,0,1,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0
 #Generacion de matriz tamano de nm de filas y columnas (vacias)
 
 def rectangulo_matriz_pricipal(filas,columnas):
-     for i in range (columnas):
+    for i in range (columnas):
         lista_filas = []
         lista_filas_estado = []
         for j in range (filas):
@@ -205,6 +203,13 @@ def valor_compu():
     descicion_compu = randint(1, n_columnas)
     return descicion_compu
 
+def reiniciar_variables():
+    global estado_matriz 
+    estado_matriz = []
+    global rectangulo_principal 
+    rectangulo_principal= []
+    print(estado_matriz)
+    rectangulo_matriz_pricipal(7,7)
 
 def inicio():
     os.system('mode con: cols=80 lines=20')
@@ -228,7 +233,7 @@ def inicio():
 def menu():
     menu_inicio = ["""
 
-        _________________________________________________
+         _________________________________________________
         |    ESTAS SON TUS OPCIONES DE JUEGOOOOOOOO,      |
         |    ELIGE UNA:                                   |
         |                                                 |
@@ -246,7 +251,7 @@ def menu():
     print(menu_inicio[0])
     opciones_menu = False
     while opciones_menu == False:
-        op_menu = input("Ingresa tu opcion : ")
+        op_menu = input("  Ingresa tu opcion : ")
         if validacion_numero(op_menu) == True:
             if int(op_menu)<=5 and int(op_menu)>0:
                 opciones_menu == True
@@ -256,4 +261,6 @@ def menu():
         
     
 
+    
+          
     
