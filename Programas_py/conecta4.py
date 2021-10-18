@@ -1,8 +1,10 @@
+from Generador_matrices import *
 from lib_frames_conecta4 import *
 import  os
 from datetime import datetime
-reg_top = []
-reg_juegos = []
+
+reg_top = registro_de_juegos
+reg_juegos = top_global
 
 def ingreso_de_datos(op):
     jugador_2 = "Computadora"
@@ -15,7 +17,8 @@ def regreso_top(jugador_ganador):
     reg_top.append(jugador_ganador)
 
 def regreso_registro(jugador_ganador,jugador_perdedor):
-    reg_top.append(jugador_ganador,jugador_perdedor,datetime.now())
+    reg_top.append([jugador_ganador,jugador_perdedor,datetime.now()])
+    guardar_registro_juegos(reg_top)
 
 def main(op_juego):
     os.system("cls")
@@ -51,6 +54,7 @@ def main(op_juego):
                     jugada = input("Elige tu opcion ---> ")
                 else:
                     jugada = valor_compu()
+                    input("Enter para continuar")
                 if validacion_numero(jugada) == True:
                     jugada = int(jugada)
                     if jugada<=n_columnas and jugada>=0:
@@ -69,24 +73,36 @@ def main(op_juego):
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador1[0])
+                regreso_registro(jugadores[0],jugadores[1])
+                regreso_top(jugadores[0])
                 input()
                 juego = False
             elif estado_ganadores[1] == True:
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador2[0])
+                regreso_registro(jugadores[1],jugadores[0])
+                regreso_top(jugadores[1])
                 input()
                 juego = False
 
 
 
 if __name__ == '__main__':
+    
     inicio()
     input()
     os.system("cls")
     opcion_juego = menu()
-    if int(opcion_juego) == 1 or opcion_juego == 2:
-        main(opcion_juego)
+    while opcion_juego != 5: 
+        if int(opcion_juego) == 1 or opcion_juego == 2:
+            main(opcion_juego)
+        elif int(opcion_juego) == 5:
+            break
+        else:
+            os.system("cls")
+        opcion_juego = menu()
+            
     
 
 

@@ -1,4 +1,4 @@
-from Generador_matrices import matriz_registro_progreso
+from conecta4 import *
 import os
 from random import randint
 
@@ -248,7 +248,7 @@ def menu():
     while opciones_menu == False:
         op_menu = input("Ingresa tu opcion : ")
         if validacion_numero(op_menu) == True:
-            if int(op_menu)<5 and int(op_menu)>0:
+            if int(op_menu)<=5 and int(op_menu)>0:
                 opciones_menu == True
                 break
 
