@@ -1,5 +1,6 @@
 from Generador_matrices import matriz_registro_progreso
 import os
+from random import randint
 
 #Fichas de juego
 
@@ -33,12 +34,16 @@ Felicidades_jugador1 = ["""
 ________________________________________________________________
             Ganador Jugador 1
 ________________________________________________________________
+
+        Presiona enter para continuar
 """]
 
 Felicidades_jugador2 = ["""
 ________________________________________________________________
             Ganador Jugador 2
 ________________________________________________________________
+
+        Presiona enter para continuar
 """]
 
 #variables generales -------------------------------------------------------------------------
@@ -106,7 +111,7 @@ def posiciones_y(columna):
     return posicion_libre
             
 def validacion_numero(caracter):
-    if caracter.isdigit():
+    if str(caracter).isdigit():
         return True
     else:
         return False
@@ -193,8 +198,9 @@ def inspeccion_lineal_vertical():
                 jugador2=True
     return [jugador1,jugador2]
 
-
-
+def valor_compu():
+    descicion_compu = randint(1, n_columnas)
+    return descicion_compu
 
 
 def inicio():
@@ -216,82 +222,35 @@ def inicio():
     """
     print(mensaje_de_inicio)
 
+def menu():
+    menu_inicio = ["""
 
-"""
-rectangulo_matriz_pricipal(7,7)
-#print (rectangulo_principal)
-print(estado_matriz)
-agregar_ficha_matriz(5,ficha1)
-#print(rectangulo_principal)
-print(estado_matriz)
-print(imprimir_forma())
+        _________________________________________________
+        |    ESTAS SON TUS OPCIONES DE JUEGOOOOOOOO,      |
+        |    ELIGE UNA:                                   |
+        |                                                 |
+        |    1. Juego contra la computadora               |
+        |                                                 |
+        |    2. Juega con un amig@ / familiar             |
+        |                                                 |
+        |    3. Consultar el top de ganadores             |
+        |                                                 |    
+        |    4. Registro de partidas jugadas              |
+        |                                                 |
+        |_________________________________________________|
 
-"""
+    """]
+    print(menu_inicio[0])
+    opciones_menu = False
+    while opciones_menu == False:
+        op_menu = input("Ingresa tu opcion : ")
+        if validacion_numero(op_menu) == True:
+            if int(op_menu)<5 and int(op_menu)>0:
+                opciones_menu == True
+                break
 
-
-
-def main():
-    os.system("cls")
-    rectangulo_matriz_pricipal(7,7)
-    juego = True
-    turno_jugador = 1
-    while juego == True:
+    return op_menu
         
-        os.system("cls")
-        imprimir_forma()
-        re_ingresar = True
-        while re_ingresar == True:
-            if turno_jugador == 1: 
-                jugada = input("---> ")
-                if validacion_numero(jugada) == True:
-                    jugada = int(jugada)
-                    if jugada<=n_columnas and jugada>=0:
-                        jugada-=1
-                        agregar_ficha_matriz(jugada,ficha1)
-                        turno_jugador = 2
-                        re_ingresar = False
-                    else:
-                        print("Columna invalida")
-                        re_ingresar == True
-                else:
-                        print("Columna invalida")
-                        re_ingresar == True
+    
 
-            else:
-                jugada = input("---> ")
-                if validacion_numero(jugada) == True:
-                    jugada = int(jugada)
-                    if jugada<=n_columnas and jugada>=0:
-                        jugada-=1
-                        agregar_ficha_matriz(jugada,ficha2)
-                        turno_jugador = 1
-                        re_ingresar = False
-                    else:
-                        print("Columna invalida")
-                        re_ingresar == True
-                else:
-                        print("Columna invalida")
-                        re_ingresar == True
-            estado_ganadores = inspeccion_diagonal_ascendentes()
-            if estado_ganadores[0] == True:
-                os.system("cls")
-                imprimir_forma()
-                print("Ganador 1 gana")
-                print(Felicidades_jugador1[0])
-                input()
-                juego = False
-            elif estado_ganadores[1] == True:
-                os.system("cls")
-                imprimir_forma()
-                print("Ganador 2 gana")
-                print(Felicidades_jugador2[0])
-                input()
-                juego = False
-                
-
-
-if __name__ == '__main__':
-    inicio()
-    input()
-    main()
     

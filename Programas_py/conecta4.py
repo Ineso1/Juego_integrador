@@ -1,21 +1,26 @@
 from lib_frames_conecta4 import *
 import  os
 
+def ingreso_de_datos(op):
+    jugador_2 = "Computadora"
+    jugador_1 = input("Nombre del jugador 1: ")
+    if int(op) == 2:
+        jugador_2 = input("Nombre del jugador 2: ")
+    return (jugador_1,jugador_2)
 
-
-def main():
+def main(op_juego):
     os.system("cls")
     rectangulo_matriz_pricipal(7,7)
     juego = True
     turno_jugador = 1
+    jugadores = ingreso_de_datos(op_juego)
     while juego == True:
-        
         os.system("cls")
         imprimir_forma()
         re_ingresar = True
         while re_ingresar == True:
             if turno_jugador == 1:
-                print("Turno del Jugador 1\n") 
+                print(f"Turno de {jugadores[0]} (Jugador 1)\n") 
                 jugada = input("Elige tu opcion ---> ")
                 if validacion_numero(jugada) == True:
                     jugada = int(jugada)
@@ -32,8 +37,11 @@ def main():
                         re_ingresar == True
 
             else:
-                print("Turno del Jugador 2\n") 
-                jugada = input("Elige tu opcion ---> ")
+                print(f"Turno de {jugadores[1]} (Jugador 2)\n")
+                if op_juego ==2:  
+                    jugada = input("Elige tu opcion ---> ")
+                else:
+                    jugada = valor_compu()
                 if validacion_numero(jugada) == True:
                     jugada = int(jugada)
                     if jugada<=n_columnas and jugada>=0:
@@ -60,11 +68,14 @@ def main():
                 print(Felicidades_jugador2[0])
                 input()
                 juego = False
-                
+
 
 
 if __name__ == '__main__':
     inicio()
     input()
-    main()
+    os.system("cls")
+    opcion_juego = menu()
+    if int(opcion_juego) == 1 or opcion_juego == 2:
+        main(opcion_juego)
     
