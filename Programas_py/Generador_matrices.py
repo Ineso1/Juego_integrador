@@ -2,11 +2,12 @@ import csv
 
 #Variables globales .....................................
 
-registro_progreso = []
+registro_de_juegos = []
 top_global = []
 
-registro_progreso_localidad = "Juego_integrador/datos/registro_progresos.csv"
+registro_progreso_localidad = "Juego_integrador/datos/registro_de_juegos.csv"
 top_global_localidad = "Juego_integrador/datos/top_global.csv"
+
 
 #........................................................
 
@@ -38,8 +39,8 @@ def guardarMatriz(archivo_a_guardar,matriz_generada_guardar):
 
 
 def matriz_registro_progreso():
-    cargarMatriz(registro_progreso_localidad,registro_progreso)
-    return registro_progreso
+    cargarMatriz(registro_progreso_localidad,registro_de_juegos)
+    return registro_de_juegos
 
 def matriz_top_global():
     cargarMatriz(top_global_localidad,top_global)
@@ -53,3 +54,6 @@ def guardar_top_global(matriz_modificada_top_global):
     top_global = matriz_modificada_top_global
     guardarMatriz(top_global_localidad,top_global)
 
+
+nuevos_top = []
+nuevos_registro_juegos = []

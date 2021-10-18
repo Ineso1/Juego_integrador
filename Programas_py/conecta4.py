@@ -1,5 +1,8 @@
 from lib_frames_conecta4 import *
 import  os
+from datetime import datetime
+reg_top = []
+reg_juegos = []
 
 def ingreso_de_datos(op):
     jugador_2 = "Computadora"
@@ -7,6 +10,12 @@ def ingreso_de_datos(op):
     if int(op) == 2:
         jugador_2 = input("Nombre del jugador 2: ")
     return (jugador_1,jugador_2)
+
+def regreso_top(jugador_ganador):
+    reg_top.append(jugador_ganador)
+
+def regreso_registro(jugador_ganador,jugador_perdedor):
+    reg_top.append(jugador_ganador,jugador_perdedor,datetime.now())
 
 def main(op_juego):
     os.system("cls")
@@ -79,3 +88,6 @@ if __name__ == '__main__':
     if int(opcion_juego) == 1 or opcion_juego == 2:
         main(opcion_juego)
     
+
+
+#faltan los csv

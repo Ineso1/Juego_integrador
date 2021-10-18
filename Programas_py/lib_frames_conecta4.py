@@ -56,6 +56,9 @@ n_columnas=7
 
 prueba_estado_matriz = [[0,0,0,1,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[1,0,0,1,1,1,1]]
 
+
+
+
 #Funciones de matriz de llenado de juego -----------------------------------------------------
 # funciones:
 # rectangulo_matriz_principal
