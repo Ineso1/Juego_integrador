@@ -3,11 +3,32 @@ from lib_frames_conecta4 import *
 import  os
 from datetime import datetime
 
+#::::::::::::::::::::::::::::
+
+registro_de_juegos = []
+top_global = []
+
+#::::::::::::::::::::::::::::
+
+def cargar_archivos():
+    cargarMatriz(registro_juegos_localidad,registro_de_juegos)
+    cargarMatriz(top_global_localidad,top_global)
+
 
 def registro_datos_partida(jugador_ganador,jugador_perdedor):
-    guardar_registro_juegos(jugador_ganador,jugador_perdedor)
-    guardar_top_global(jugador_ganador)
+    score=0
 
+    lista_a_registro_juegos = [jugador_ganador,jugador_perdedor]
+    lista_a_top_global = jugador_ganador
+    registro_juegos_anadir = [lista_a_registro_juegos[0],lista_a_registro_juegos[1],datetime.now()]
+    registro_de_juegos.append(registro_juegos_anadir)
+    guardarMatriz(registro_juegos_localidad,registro_de_juegos)
+    top_global_anadir = [lista_a_top_global,score]
+    top_global.append(top_global_anadir)
+    guardarMatriz(top_global_localidad,top_global)
+
+    print("Partida guardada")
+    input()
 
 
 def ingreso_de_datos(op):
@@ -75,19 +96,20 @@ def main(op_juego):
                         re_ingresar == True
             estado_ganadores = inspeccion()
             if estado_ganadores[0] == True:
+                registro_datos_partida(jugadores[0],jugadores[1])
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador1[0])
                 input()
                 juego = False
-                registro_datos_partida(jugadores[0],jugadores[1])
             elif estado_ganadores[1] == True:
+                registro_datos_partida(jugadores[1],jugadores[0])
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador2[0])
                 input()
                 juego = False
-                registro_datos_partida(jugadores[1],jugadores[0])
+                
     os.system("cls")
 
 
