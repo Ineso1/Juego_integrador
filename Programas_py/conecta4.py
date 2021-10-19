@@ -76,7 +76,7 @@ def main(op_juego):
 
             else:
                 print(f"Turno de {jugadores[1]} (Jugador 2)\n")
-                if op_juego ==2:  
+                if int(op_juego) == 2:  
                     jugada = input("Elige tu opcion ---> ")
                 else:
                     jugada = valor_compu()
@@ -96,17 +96,17 @@ def main(op_juego):
                         re_ingresar == True
             estado_ganadores = inspeccion()
             if estado_ganadores[0] == True:
-                registro_datos_partida(jugadores[0],jugadores[1])
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador1[0])
+                registro_datos_partida(jugadores[0],jugadores[1])
                 input()
                 juego = False
             elif estado_ganadores[1] == True:
-                registro_datos_partida(jugadores[1],jugadores[0])
                 os.system("cls")
                 imprimir_forma()
                 print(Felicidades_jugador2[0])
+                registro_datos_partida(jugadores[1],jugadores[0])
                 input()
                 juego = False
                 
@@ -114,22 +114,35 @@ def main(op_juego):
 
 
 if __name__ == '__main__':
-    
+    cargar_archivos()
     inicio()
     input()
     opcion_juego = 1
-    while opcion_juego != 5:
+    os.system("cls")
+    opcion_juego = menu() 
+    while opcion_juego != "5":
         os.system("cls")
-        opcion_juego = menu() 
-        if int(opcion_juego) == 1 or opcion_juego == 2:
+        if opcion_juego == "1" or opcion_juego == "2":
             main(opcion_juego)
-        elif int(opcion_juego) == 5:
-            break
+        elif opcion_juego == "3":
+            os.system("cls")
+            print("""
+    Jugador || Numero de partidas ganadas
+    """)
+            imprimir_tablas(top_global)
+            input("\n  Preciona ENTER para continuar")
+        elif  opcion_juego == "4":
+            os.system("cls")
+            print("""
+    Ganador  || Perdedor  || Fecha
+    """)
+            imprimir_tablas(registro_de_juegos)
+            input("\n  Preciona ENTER para continuar")
         else:
             os.system("cls")
+            print("Valor no valido en el menu\n")
             opcion_juego = menu()
-            
+        os.system("cls")
+        opcion_juego = menu() 
     
 
-
-#faltan los csv

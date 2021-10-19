@@ -208,8 +208,15 @@ def reiniciar_variables():
     estado_matriz = []
     global rectangulo_principal 
     rectangulo_principal= []
-    print(estado_matriz)
     rectangulo_matriz_pricipal(7,7)
+
+def imprimir_tablas(matriz_documento):
+    string_renglon = ""
+    for renglon in range(len(matriz_documento)):
+        for dato in range(len(matriz_documento[renglon])):
+            string_renglon = string_renglon + f"   {matriz_documento[renglon][dato]}\t"  
+        string_renglon = string_renglon + "\n"  
+    print (string_renglon)
 
 def inicio():
     os.system('mode con: cols=80 lines=20')
