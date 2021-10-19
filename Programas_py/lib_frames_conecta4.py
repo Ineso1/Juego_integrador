@@ -252,6 +252,7 @@ def menu():
         |                                                 |    
         |    4. Registro de partidas jugadas              |
         |                                                 |
+        |    5. Salir                                     |
         |_________________________________________________|
 
     """]
@@ -266,8 +267,3 @@ def menu():
 
     return op_menu
         
-    
-
-    
-          
-    

@@ -2,6 +2,7 @@ from Generador_matrices import *
 from lib_frames_conecta4 import *
 import  os
 from datetime import datetime
+from operator import itemgetter
 
 #::::::::::::::::::::::::::::
 
@@ -13,18 +14,30 @@ top_global = []
 def cargar_archivos():
     cargarMatriz(registro_juegos_localidad,registro_de_juegos)
     cargarMatriz(top_global_localidad,top_global)
-
+    
+def buscar_elemento(matriz, columna, valor):
+    id_elemento = -1
+    for x in range(len(matriz)):
+        if valor == matriz[x][columna].upper():
+            id_elemento = x
+            break
+        else:
+            id_elemento = -1
+    return id_elemento
 
 def registro_datos_partida(jugador_ganador,jugador_perdedor):
-    score=0
-
+    score=1
+    id_nombre = buscar_elemento(top_global,0,jugador_ganador.upper())
     lista_a_registro_juegos = [jugador_ganador,jugador_perdedor]
     lista_a_top_global = jugador_ganador
     registro_juegos_anadir = [lista_a_registro_juegos[0],lista_a_registro_juegos[1],datetime.now()]
     registro_de_juegos.append(registro_juegos_anadir)
     guardarMatriz(registro_juegos_localidad,registro_de_juegos)
-    top_global_anadir = [lista_a_top_global,score]
-    top_global.append(top_global_anadir)
+    if id_nombre == -1:
+        top_global_anadir = [lista_a_top_global,score]
+        top_global.append(top_global_anadir)
+    else: 
+        top_global[id_nombre][1] = int(top_global[id_nombre][1])+1
     guardarMatriz(top_global_localidad,top_global)
 
     print("Partida guardada")
@@ -37,14 +50,7 @@ def ingreso_de_datos(op):
     if int(op) == 2:
         jugador_2 = input("Nombre del jugador 2: ")
     return (jugador_1,jugador_2)
-"""
-def regreso_top(jugador_ganador):
-    reg_top.append(jugador_ganador)
 
-def regreso_registro(jugador_ganador,jugador_perdedor):
-    reg_top.append([jugador_ganador,jugador_perdedor,datetime.now()])
-    guardar_registro_juegos(reg_top)
-"""
 
 def main(op_juego):
     os.system("cls")
@@ -124,7 +130,8 @@ if __name__ == '__main__':
         os.system("cls")
         if opcion_juego == "1" or opcion_juego == "2":
             main(opcion_juego)
-        elif opcion_juego == "3":
+        elif opcion_juego == "3": 
+            top_global = sorted(top_global , key=lambda x: -int(x[1]))
             os.system("cls")
             print("""
     Jugador || Numero de partidas ganadas
