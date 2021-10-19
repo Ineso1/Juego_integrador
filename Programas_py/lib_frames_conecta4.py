@@ -266,4 +266,22 @@ def menu():
                 break
 
     return op_menu
+
+def instrucciones():
+    instruccion = ["""
+    --------------------------------------------------------------
+    Estas por comenzar el juego
+
+    Crea tu estrategia e introduce las fichas segun tu estrategia
+
+    Gana el primero que forme una linea de 4 ya sea en:
+        *  vertical
+        *  horizontal
+        *  diagonal
+
+      SUERTE A LOS JUGADORES
+    --------------------------------------------------------------
+
+    """]
+    print(instruccion[0])
         

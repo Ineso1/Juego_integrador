@@ -54,6 +54,9 @@ def ingreso_de_datos(op):
 
 def main(op_juego):
     os.system("cls")
+    instrucciones()
+    input()
+    os.system("cls")
     reiniciar_variables()
     juego = True
     turno_jugador = 1
