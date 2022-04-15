@@ -6,6 +6,7 @@ Game to keep the mind active through dexterity and agility in patterns, also dev
 The famous Connect Four but now in Python, this game consists of arranging four tiles continuously, either linearly or diagonally, but this will be prevented by another player seeking the same goal.
 
 Program developers:
+
     Ines Alejandro Garcia Mosqueda
     
     Yael Quintero Higuera
@@ -20,6 +21,7 @@ Juego para mantener la mente activa mediante destreza  y agilidad en patrones , 
 El famoso Conecta cuatro pero ahora en Python, este juego consiste en acomodar cuatro fichas de forma continua, ya sea lineal o en diagonal, pero esto será impedido por otro jugador que busca la misma meta.
 
 Desarrolladores del programa:
+
     Ines Alejandro Garcia Mosqueda
     
     Yael Quintero Higuera 
