@@ -7,6 +7,7 @@ The famous Connect Four but now in Python, this game consists of arranging four 
 
 Program developers:
     Ines Alejandro Garcia Mosqueda
+    
     Yael Quintero Higuera
 
 To use this program you must run the file "conecta4.py"
@@ -20,6 +21,7 @@ El famoso Conecta cuatro pero ahora en Python, este juego consiste en acomodar c
 
 Desarrolladores del programa:
     Ines Alejandro Garcia Mosqueda
+    
     Yael Quintero Higuera 
 
 Para el uso de este programa se debe de ejecutar el archivo "conecta4.py"
